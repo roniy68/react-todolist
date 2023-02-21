@@ -1,4 +1,6 @@
 import React from 'react';
+import InputTodo from './InputTodo';
+import TodoList from './TodoList';
 
 const TodosLogic = () => {
   const todos = [
@@ -17,11 +19,17 @@ const TodosLogic = () => {
       title: 'Deploy to live server',
       completed: false,
     },
+    {
+      id: 4,
+      title: 'Deploy to live server',
+      completed: false,
+    },
   ];
   return (
-    <ul>
-      {todos.map((todo, index) => <li key={index.toString}>{todo.title}</li>)}
-    </ul>
+    <>
+      <InputTodo />
+      <TodoList todosProps={todos} />
+    </>
   );
 };
 

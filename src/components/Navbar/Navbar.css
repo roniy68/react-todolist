@@ -28,7 +28,6 @@
   justify-content: space-around;
 }
 
-
-
-.navbar__heading{
+.navbar__button {
+  font-size: 30px;
 }
