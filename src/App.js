@@ -1,12 +1,11 @@
 import './App.css';
-import { Footer, Navbar } from './components';
-import { Home } from './containers';
+import { Footer, Navbar, TodoApp } from './components';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home />
+      <TodoApp />
       <Footer />
     </div>
   );

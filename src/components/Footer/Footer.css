@@ -1,5 +1,5 @@
 .footer {
-  background-color: green;
+  background-color: var(--color-footer);
   height: 200px;
   font-size: 40px;
   text-align: center;
