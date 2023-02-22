@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { useOnClickOutside } from '../useOnClickOutside';
 import './Navbar.css';
 // import logo from '../../assets/ai.png';
 
@@ -8,14 +9,7 @@ const Navbar = () => {
 
   const ref = useRef();
 
-  useEffect(() => {
-    const handler = (event) => {
-      if (dropdown && ref.current && !ref.current.contains(event.target)) {
-        setDropdown(false);
-      }
-    };
-    return () => document.addEventListener('mousedown', handler);
-  }, [dropdown]);
+  useOnClickOutside(ref, dropdown, () => setDropdown(false));
 
   return (
     <nav>
