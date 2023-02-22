@@ -1,9 +1,9 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todosProps }) => (
+const TodoList = ({ todosProps, setTodos }) => (
   <ul>
-    {todosProps.map((todo) => <TodoItem key={todo.id} todo={todo} />)}
+    {todosProps.map((todo) => <TodoItem key={todo.id} itemProp={todo} setTodos={setTodos} />)}
   </ul>
 
 );

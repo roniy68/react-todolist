@@ -1,7 +1,26 @@
-import React from 'react';
+const TodoItem = ({ itemProp, setTodos, delTodo }) => {
+  const handleChange = (id) => {
+    setTodos((prevState) => prevState.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      }
+      return todo;
+    }));
+  };
 
-const TodoItem = ({ todo }) => (
-  <li>{todo.title}</li>
-);
-
+  return (
+    <li>
+      <input
+        type="checkbox"
+        checked={itemProp.completed}
+        onChange={() => handleChange(itemProp.id)}
+      />
+      <button type="submit" onClick={() => delTodo(itemProp.id)}>Delete</button>
+      {itemProp.title}
+    </li>
+  );
+};
 export default TodoItem;
