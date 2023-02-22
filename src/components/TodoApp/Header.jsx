@@ -1,10 +1,19 @@
 import React from 'react';
+import styles from './Header.module.css';
 
-const Header = () => (
-  <div className="todo__header">
-    <h1>todos</h1>
-    <span>Items will persist in the browser local storage</span>
-  </div>
-);
+const Header = () => {
+  const headerStyle = {
+    padding: '20px 0',
+    lineHeight: '1.5em',
+    color: '#aeadad',
+    textAlign: 'center',
+  };
+  return (
+    <header style={headerStyle} className={styles.header}>
+      <h1>todos</h1>
+      <span>Items will persist in the browser local storage</span>
+    </header>
+  );
+};
 
 export default Header;
