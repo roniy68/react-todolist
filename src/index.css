@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 *,
 ::before,
@@ -21,4 +21,18 @@
   --color-text: #021a31;
   --color-subtext: #ff8a71;
   --color-navbar: rgb(112, 129, 187);
+} */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.4;
+  color: #000;
+  background: #fff;
+  height: 100vh;
+  font-weight: 400;
+}
+

@@ -4,9 +4,11 @@ import './TodoApp.css';
 import TodosLogic from './TodosLogic';
 
 const TodoApp = () => (
-  <div className="todo">
-    <Header />
-    <TodosLogic />
+  <div className="wrapper">
+    <div className="todos">
+      <Header />
+      <TodosLogic />
+    </div>
   </div>
 );
 
