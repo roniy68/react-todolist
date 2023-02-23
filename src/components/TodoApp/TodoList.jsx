@@ -10,7 +10,8 @@ const TodoList = ({
       <TodoItem
         key={todo.id}
         itemProp={todo}
-        setTodos={setTodos}
+        handleChange={handleChange}
+        delTodo={delTodo}
         setUpdate={setUpdate}
       />
     ))}

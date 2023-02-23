@@ -38,10 +38,6 @@ const TodoItem = ({ itemProp, setTodos, delTodo, setUpdate }) => {
     editMode.display = 'none';
   }
 
-  const setUpdate = (updatedTitle, id) => {
-    // update state
-  };
-
   return (
     <li className={styles.item}>
       <div className={styles.content} style={viewMode}>

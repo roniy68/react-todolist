@@ -66,6 +66,7 @@ const TodosLogic = () => {
         setTodos={setTodos}
         handleChange={handleChange}
         delTodo={delTodo}
+        setUpdate={setUpdate}
       />
     </>
   );
