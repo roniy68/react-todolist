@@ -1,3 +1,4 @@
+import { TodosProvider } from 'context/TodosContext';
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import InputTodo from './InputTodo';
@@ -55,7 +56,7 @@ const TodosLogic = () => {
   };
 
   return (
-    <>
+    <TodosProvider>
       <InputTodo addTodoItem={addTodoItem} />
       <TodoList
         todosProps={todos}
@@ -64,7 +65,7 @@ const TodosLogic = () => {
         delTodo={delTodo}
         setUpdate={setUpdate}
       />
-    </>
+    </TodosProvider>
   );
 };
 
