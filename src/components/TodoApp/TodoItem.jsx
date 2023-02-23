@@ -1,9 +1,10 @@
 /* eslint-disable */
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styles from './TodoItem.module.css';
 
 const TodoItem = ({ itemProp, setTodos, delTodo, setUpdate }) => {
-  const [updateInput, setUpdateInput] = useState(itemProp.title);
+  //const [updateInput, setUpdateInput] = useState(itemProp.title);
+  const editInputRef = useRef(null);
   const [editing, setEditing] = useState(false);
   const handleChange = (id) => {
     setTodos((prevState) => prevState.map((todo) => {
@@ -21,7 +22,8 @@ const TodoItem = ({ itemProp, setTodos, delTodo, setUpdate }) => {
   };
   const handleUpdatedDone = (event) => {
     if (event.key === 'Enter') {
-      setUpdate(updateInput, itemProp.id);
+      setUpdate(editInputRef.current.value, itemProp.id);
+      //setUpdate(updateInput, itemProp.id);
       setEditing(false);
     }
   };
@@ -56,10 +58,12 @@ const TodoItem = ({ itemProp, setTodos, delTodo, setUpdate }) => {
       </div>
       <input
         type="text"
-        value={updateInput}
+        //value={updateInput}
+        //onChange={(e) => setUpdateInput(e.target.value)}
+        ref={editInputRef}
+        defaultValue={itemProp.title}
         className={styles.textInput}
         style={editMode}
-        onChange={(e) => setUpdateInput(e.target.value)}
         onKeyDown={handleUpdatedDone}
       />
     </li>
