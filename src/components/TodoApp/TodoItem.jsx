@@ -1,6 +1,9 @@
 /* eslint-disable */
 import { useState, useRef } from 'react';
 import styles from './TodoItem.module.css';
+import { FaTrash } from "react-icons/fa";
+import { AiFillEdit } from "react-icons/ai";
+
 
 const TodoItem = ({ itemProp, setTodos, delTodo, setUpdate }) => {
   const [updateInput, setUpdateInput] = useState(itemProp.title);
@@ -50,8 +53,12 @@ const TodoItem = ({ itemProp, setTodos, delTodo, setUpdate }) => {
           checked={itemProp.completed}
           onChange={() => handleChange(itemProp.id)}
         />
-        <button type="button" onClick={handleEditing}>Edit</button>
-        <button type="button" onClick={() => delTodo(itemProp.id)}>Delete</button>
+        <button type="button" onClick={handleEditing}>
+          <AiFillEdit style={{ color: "#5e5e5e", fontSize: "16px" }}/>
+        </button>
+        <button type="button" onClick={() => delTodo(itemProp.id)}>
+          <FaTrash style={{ color: "#5e5e5e", fontSize: "16px" }}/>
+        </button>
         <span style={itemProp.completed ? completedStyle : null}>
           {updateInput}
         </span>
