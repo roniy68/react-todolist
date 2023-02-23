@@ -1,29 +1,20 @@
-/* eslint-disable */
-import React from 'react';
-import TodoItem from './TodoItem';
 import { useTodosContext } from 'context/TodosContext';
+import TodoItem from './TodoItem';
 
-const TodoList = ({
-  todosProps, handleChange, delTodo, setUpdate, setTodos
-}) => {
-  const value = useTodosContext();
-  console.log(value);
+const TodoList = () => {
+  const { todos } = useTodosContext();
 
   return (
     <ul>
-      {todosProps.map((todo) => (
+      {todos.map((todo) => (
         <TodoItem
           key={todo.id}
           itemProp={todo}
-          handleChange={handleChange}
-          delTodo={delTodo}
-          setUpdate={setUpdate}
-          setTodos={setTodos}
         />
       ))}
     </ul>
 
   );
-}
+};
 
 export default TodoList;
