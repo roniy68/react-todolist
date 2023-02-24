@@ -39,7 +39,8 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "no-param-reassign": 0,
     "no-use-before-define": "off",
-    "react/button-has-type":"off"
+    "react/button-has-type":"off",
+    " no-nested-ternary": "off"
   },
   "ignorePatterns": [
     "dist/",

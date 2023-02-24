@@ -62,19 +62,19 @@ const Navbar = () => {
                 !user && (
                 <li>
                   <NavLink
-                        to={link.path}
-                        onClick={() => setNavbarOpen(false)}
-                      >
-                        {link.text}
-                      </NavLink>
+                    to={link.path}
+                    onClick={() => setNavbarOpen(false)}
+                  >
+                    {link.text}
+                  </NavLink>
                 </li>
                 )
               ) : link.path === 'profile' ? (
                 user && (
                 <li>
                   <NavLink to={link.path}>
-                        {link.text}
-                      </NavLink>
+                    {link.text}
+                  </NavLink>
                 </li>
                 )
               ) : (
