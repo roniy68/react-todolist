@@ -40,7 +40,9 @@
     "no-param-reassign": 0,
     "no-use-before-define": "off",
     "react/button-has-type":"off",
-    " no-nested-ternary": "off"
+    " no-nested-ternary": "off",
+    "react/no-array-index-key" : "off",
+    "jsx-a11y/label-has-associated-control": "off"
   },
   "ignorePatterns": [
     "dist/",

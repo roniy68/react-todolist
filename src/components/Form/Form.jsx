@@ -20,7 +20,6 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
   };
 
   const carBrands = ['Mercedes', 'BMW', 'Maserati', 'Infinity', 'Audi'];

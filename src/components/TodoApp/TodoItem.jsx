@@ -1,11 +1,8 @@
-/* eslint-disable */
 import { useState, useRef } from 'react';
 import { useTodosContext } from 'context/TodosContext';
+import { FaTrash } from 'react-icons/fa';
+import { AiFillEdit } from 'react-icons/ai';
 import styles from './TodoItem.module.css';
-import { FaTrash } from "react-icons/fa";
-import { AiFillEdit } from "react-icons/ai";
-
-
 
 const TodoItem = ({ itemProp }) => {
   const [editing, setEditing] = useState(false);
@@ -25,8 +22,8 @@ const TodoItem = ({ itemProp }) => {
     setEditing(true);
   };
 
-  let viewMode = {};
-  let editMode = {};
+  const viewMode = {};
+  const editMode = {};
   if (editing) {
     viewMode.display = 'none';
   } else {
