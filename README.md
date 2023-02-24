@@ -70,11 +70,11 @@ So, if you're looking for a modern, efficient, and fun way to manage your tasks,
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
+<!-- LIVE DEMO --
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-***Live*** :  [React-To-Do-List](https://roniy68.github.io/react-todolist).
+***Live*** :  [React-To-Do-List](https://63f877a389e794663e53f574--react-todo-ahr.netlify.app/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
