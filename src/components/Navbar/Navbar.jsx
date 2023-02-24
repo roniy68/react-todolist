@@ -1,55 +1,103 @@
-import React, { useRef, useState } from 'react';
-import { useOnClickOutside } from '../useOnClickOutside';
-import './Navbar.css';
-// import logo from '../../assets/ai.png';
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuthContext } from 'context/AuthContext';
+import { MdClose } from 'react-icons/md';
+import { FiMenu } from 'react-icons/fi';
 
-// const menus = ['HOME', 'TODO-LIST', 'CONTACT'];
+const links = [
+  { path: '/', text: 'Home' },
+  { path: 'about', text: 'About' },
+  { path: 'profile', text: 'Profile' },
+  { path: 'login', text: 'Login' },
+];
+
 const Navbar = () => {
-  const [dropdown, setDropdown] = useState(false);
-
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const { user, logout } = useAuthContext();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
   const ref = useRef();
-
-  useOnClickOutside(ref, dropdown, () => setDropdown(false));
+  useEffect(() => {
+    const handler = (event) => {
+      if (
+        navbarOpen
+        && ref.current
+        && !ref.current.contains(event.target)
+      ) {
+        setNavbarOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener('mousedown', handler);
+    };
+  }, [navbarOpen]);
 
   return (
-    <nav>
-      <ul className="navbar">
-        <li>Home</li>
-        <li>About</li>
-        <li>
-          <button className="navbar__button" onClick={() => setDropdown((prev) => !prev)} type="submit">
-            Services
-            {' '}
-            <span>&#8595;</span>
-          </button>
-          {dropdown && (
-            <ul>
-              <li>Design</li>
-              <li>Development</li>
-            </ul>
+    <>
+      <nav ref={ref} className="navbar">
+        <button
+          className="toggle"
+          onClick={() => setNavbarOpen((prev) => !prev)}
+        >
+          {navbarOpen ? (
+            <MdClose style={{ width: '32px', height: '32px' }} />
+          ) : (
+            <FiMenu
+              style={{
+                width: '32px',
+                height: '32px',
+              }}
+            />
           )}
-        </li>
-      </ul>
-    </nav>
-
-  // <div className="navbar">
-  //   <div className="navbar__logo">
-  //     <img src={logo} height="60px" alt="logo" />
-  //   </div>
-  //   <div>
-  //     <h1>To Do List</h1>
-  //   </div>
-  //   <div className="navbar__menu">
-  //     <ul className="navbar__list">
-  //       {menus.map((menu, index) => (
-  //         <li key={index.toString}>
-  //           {menu}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </div>
-  // </div>
+        </button>
+        <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
+          {links.map((link) => (
+            <React.Fragment key={link.text}>
+              {link.path === 'login' ? (
+                !user && (
+                <li>
+                  <NavLink
+                        to={link.path}
+                        onClick={() => setNavbarOpen(false)}
+                      >
+                        {link.text}
+                      </NavLink>
+                </li>
+                )
+              ) : link.path === 'profile' ? (
+                user && (
+                <li>
+                  <NavLink to={link.path}>
+                        {link.text}
+                      </NavLink>
+                </li>
+                )
+              ) : (
+                <li>
+                  <NavLink to={link.path}>{link.text}</NavLink>
+                </li>
+              )}
+            </React.Fragment>
+          ))}
+          {!user && (
+          <li className="log-in">
+            <span>Log in to edit to-dos</span>
+          </li>
+          )}
+        </ul>
+      </nav>
+      {user && (
+      <div className="logout">
+        <p>{user}</p>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
+      )}
+    </>
   );
 };
-
 export default Navbar;
